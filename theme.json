@@ -1,10 +1,10 @@
 {
-  "id": "zen-tab-islands",
-  "name": "Zen Tab Islands (Sine)",
-  "author": "your-github-username",
-  "version": "0.9.0",
-  "description": "Vertical mini-tab bars that fall into place and convert into colored tab-islands for Zen Browser. Includes userChrome.css + small chrome JS to animate tab -> group.",
-  "homepage": "https://github.com/your-github/zen-tab-islands",
-  "tags": ["zen","tabs","islands","animation","sine","userChrome"],
-  "preview": "preview.png"
+  "name": "Tab Islands",
+  "description": "A mod that groups tabs into visually distinct islands.",
+  "author": "Samyak",
+  "version": "1.0.0",
+  "mod": {
+    "js": ["tab-islands.uc.js"],
+    "css": ["userChrome.css"]
+  }
 }
