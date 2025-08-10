@@ -1,0 +1,92 @@
+/* userChrome.css - Zen Tab Islands (falling -> group) */
+
+/* Basic variables & palette */
+:root {
+  --zti-bg: #07101a;
+  --zti-contrast: rgba(255,255,255,0.04);
+  --zti-text: #e6eef8;
+  --zti-palette-0: #6C8EF6;
+  --zti-palette-1: #6FE6C3;
+  --zti-palette-2: #FFD166;
+  --zti-palette-3: #FF8FA3;
+  --zti-palette-4: #B39CFF;
+  --zti-fall-duration: 420ms;
+}
+
+/* Narrow vertical bars for Zen's vertical tab strip (Zen uses vertical sidebar) */
+#tabbrowser-tabs {
+  width: 52px !important;
+  background: linear-gradient(180deg, var(--zti-bg), #02060a) !important;
+  padding: 8px 6px !important;
+}
+
+/* Compact tab visual: favicon-only rounded mini-bar */
+.tabbrowser-tab {
+  min-height: 44px !important;
+  max-height: 44px !important;
+  padding: 4px !important;
+  margin: 8px 4px !important;
+  border-radius: 12px !important;
+  background: transparent !important; /* default transparent, will be colored when converted */
+  transition: transform 180ms ease, box-shadow 220ms ease, background-color 300ms linear;
+  overflow: visible !important;
+}
+
+/* hide native title to keep minimal */
+.tabbrowser-tab .tab-label { display: none !important; }
+
+/* favicon centered */
+.tabbrowser-tab .tab-icon-image {
+  width: 20px !important;
+  height: 20px !important;
+  margin: 0 auto !important;
+  border-radius: 5px !important;
+}
+
+/* hover lift */
+.tabbrowser-tab:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.45);
+}
+
+/* --- FALL ANIMATION (newly opened tabs fall into place) --- */
+@keyframes zti-fall-in {
+  0% { transform: translateY(-28px) scaleY(0.7); opacity: 0; filter: blur(4px); }
+  60% { transform: translateY(8px) scaleY(1.06); opacity: 1; filter: blur(0.6px); }
+  100% { transform: translateY(0) scaleY(1); opacity: 1; filter: none; }
+}
+
+/* attach falling to a tab element when script sets .zti-falling */
+.tabbrowser-tab.zti-falling {
+  animation: zti-fall-in var(--zti-fall-duration) cubic-bezier(.2,.9,.28,1);
+}
+
+/* --- CONVERT TO GROUP (colored island) --- */
+/* When a tab or a small set is treated as a group, the script will set .zti-group and data-zti-color-index */
+.tabbrowser-tab.zti-group {
+  background-color: var(--zti-contrast) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.5);
+}
+
+/* color mapping: the script will set data-zti-color-index="2" etc. */
+.tabbrowser-tab.zti-group[data-zti-color-index="0"] { background-color: color-mix(in srgb, var(--zti-palette-0) 85%, #050814 15%) !important; }
+.tabbrowser-tab.zti-group[data-zti-color-index="1"] { background-color: color-mix(in srgb, var(--zti-palette-1) 85%, #050814 15%) !important; }
+.tabbrowser-tab.zti-group[data-zti-color-index="2"] { background-color: color-mix(in srgb, var(--zti-palette-2) 85%, #050814 15%) !important; }
+.tabbrowser-tab.zti-group[data-zti-color-index="3"] { background-color: color-mix(in srgb, var(--zti-palette-3) 85%, #050814 15%) !important; }
+.tabbrowser-tab.zti-group[data-zti-color-index="4"] { background-color: color-mix(in srgb, var(--zti-palette-4) 85%, #050814 15%) !important; }
+
+/* expand style for a group (larger height, show label) */
+.tabbrowser-tab.zti-group-expanded {
+  min-height: 64px !important;
+  max-height: 64px !important;
+}
+.tabbrowser-tab.zti-group-expanded .tab-label {
+  display: block !important;
+  font-size: 12px !important;
+  color: var(--zti-text) !important;
+  margin-left: 6px !important;
+}
+
+/* small UX niceties */
+.tabbrowser-tab.zti-falling, .tabbrowser-tab.zti-group { outline: none !important; }
