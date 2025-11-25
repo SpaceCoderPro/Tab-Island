@@ -1,10 +1,17 @@
 # Tab-Island
 
-A Zen Browser/Firefox customization that creates Opera-style grouped "tab islands" for better tab organization and visual management.
+**A browser extension for Zen Browser/Firefox that creates Opera-style grouped "tab islands" for better tab organization and visual management.**
+
+> **🚀 Seeking Help with Extension Packaging!**  
+> This project is currently a browser customization that needs to be packaged as a proper browser extension. If you have experience with Firefox/Chrome extension development and can help convert this userChrome-based customization into a distributable extension, please reach out!
 
 ## Project Overview
 
-Tab-Island is a browser customization that transforms your tab bar into visually distinct islands, grouping related tabs together in an organized and aesthetically pleasing manner. Inspired by Opera's tab island concept, this mod provides a modern, glass-morphism design with smooth animations and configurable preferences.
+Tab-Island is a **browser extension** (currently implemented as a userChrome customization) that transforms your tab bar into visually distinct islands, grouping related tabs together in an organized and aesthetically pleasing manner. Inspired by Opera's tab island concept, this mod provides a modern, glass-morphism design with smooth animations and configurable preferences.
+
+### Current Status
+
+⚠️ **This is currently a userChrome-based customization, not a standalone extension.** The project needs assistance with packaging it as a proper browser extension for easier distribution and installation.
 
 ## Features
 
@@ -35,10 +42,13 @@ tab-island/
 
 ## Installation
 
+> **📦 Note**: This is currently a userChrome-based customization. We are working on packaging this as a proper browser extension for easier installation. See the "Contributing" section if you can help with extension development!
+
 ### Prerequisites
 
 - Zen Browser or Firefox with userChrome support
 - Basic understanding of browser customization files
+- `toolkit.legacyUserProfileCustomizations.stylesheets` preference enabled
 
 ### Step-by-Step Installation
 
@@ -130,6 +140,10 @@ The core functionality can be extended by modifying:
 
 This project is open source. Please check the repository for specific licensing information or contact the author for usage rights.
 
+### Extension Packaging Help
+
+If you help convert this to a proper browser extension, your contributions will be credited and the project will maintain open source principles to ensure maximum accessibility for the community.
+
 ## Author
 
 **Samyak** - Initial development and maintenance
@@ -140,7 +154,27 @@ Current version: **1.0.0**
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit issues and enhancement requests to improve the Tab-Island customization.
+Contributions are welcome! We especially need help with:
+
+### 🎯 Priority: Extension Packaging
+
+**We urgently need assistance converting this userChrome customization into a proper browser extension!** If you have experience with:
+
+- Firefox WebExtensions API
+- Chrome Extension Manifest V3
+- Browser addon development
+- Converting userChrome mods to extensions
+
+**Please reach out - your help would make this project accessible to much more users!**
+
+### Other Contributions
+
+- Bug fixes and improvements to the existing userChrome implementation
+- Documentation enhancements
+- Feature suggestions and requests
+- Testing across different browser versions
+
+Feel free to submit issues and enhancement requests to improve the Tab-Island customization.
 
 ## Troubleshooting
 
