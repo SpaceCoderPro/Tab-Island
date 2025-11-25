@@ -3,15 +3,11 @@
 **A browser extension for Zen Browser/Firefox that creates Opera-style grouped "tab islands" for better tab organization and visual management.**
 
 > **🚀 Seeking Help with Extension Packaging!**  
-> This project is currently a browser customization that needs to be packaged as a proper browser extension. If you have experience with Firefox/Chrome extension development and can help convert this userChrome-based customization into a distributable extension, please reach out!
+> This project needs to be properly packaged as a distributable browser extension. If you have experience with Firefox/Chrome extension development, please reach out!
 
 ## Project Overview
 
-Tab-Island is a **browser extension** (currently implemented as a userChrome customization) that transforms your tab bar into visually distinct islands, grouping related tabs together in an organized and aesthetically pleasing manner. Inspired by Opera's tab island concept, this mod provides a modern, glass-morphism design with smooth animations and configurable preferences.
-
-### Current Status
-
-⚠️ **This is currently a userChrome-based customization, not a standalone extension.** The project needs assistance with packaging it as a proper browser extension for easier distribution and installation.
+Tab-Island is a browser extension that transforms your tab bar into visually distinct islands, grouping related tabs together in an organized and aesthetically pleasing manner. Inspired by Opera's tab island concept, this mod provides a modern, glass-morphism design with smooth animations and configurable preferences.
 
 ## Features
 
@@ -42,46 +38,21 @@ tab-island/
 
 ## Installation
 
-> **📦 Note**: This is currently a userChrome-based customization. We are working on packaging this as a proper browser extension for easier installation. See the "Contributing" section if you can help with extension development!
+### Testing (Temporary)
 
-### Prerequisites
+1. **Download** the Tab-Island project files to your local machine.
+2. **Open Firefox** and navigate to `about:debugging`
+3. **Click "This Firefox"** → **"Load Temporary Add-on"**
+4. **Select** the project's manifest file or any file from the extension directory
+5. **Tab-Island** will be installed temporarily for testing
 
-- Zen Browser or Firefox with userChrome support
-- Basic understanding of browser customization files
-- `toolkit.legacyUserProfileCustomizations.stylesheets` preference enabled
+### Distribution
 
-### Step-by-Step Installation
-
-1. **Download or clone** the Tab-Island project files to your local machine.
-
-2. **Locate your browser's profile directory**:
-   - For Firefox/Zen Browser, typically found in:
-     - Windows: `%APPDATA%\Mozilla\Firefox\Profiles\`
-     - macOS: `~/Library/Application Support/Firefox/Profiles/`
-     - Linux: `~/.mozilla/firefox/`
-
-3. **Create the chrome directory** (if it doesn't exist):
-   ```bash
-   mkdir -p /path/to/your/profile/chrome
-   ```
-
-4. **Copy the files** to your profile's chrome directory:
-   - `tab-islands.uc.js` → `chrome/tab-islands.uc.js`
-   - `userChrome.css` → `chrome/userChrome.css`
-
-5. **Enable userChrome.css** (if not already enabled):
-   - Navigate to `about:config` in your browser
-   - Set `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`
-
-6. **Import preferences** (optional):
-   - Open `about:config`
-   - Import the settings from `preferences.json` or set them manually
-
-7. **Restart your browser** to apply the changes.
+The extension needs proper packaging for distribution through Firefox Add-ons or Chrome Web Store. See "Contributing" section if you can help with this.
 
 ## Configuration
 
-The Tab-Island customization can be configured through the `preferences.json` file:
+The Tab-Island extension can be configured through the `preferences.json` file:
 
 ### Available Settings
 
@@ -94,17 +65,12 @@ The Tab-Island customization can be configured through the `preferences.json` fi
 
 ### Modifying Preferences
 
-You can modify these preferences by:
-
-1. **Editing preferences.json** before installation
-2. **Using about:config** to override individual settings
-3. **Creating a custom user.js** file in your profile directory
+Edit the `preferences.json` file before loading the extension, or modify settings through the extension's options page (once implemented).
 
 ## Requirements
 
-- **Zen Browser** (recommended) or **Firefox** with userChrome support
-- Firefox version supporting userChrome customization
-- `toolkit.legacyUserProfileCustomizations.stylesheets` preference enabled
+- **Zen Browser** (recommended) or **Firefox** with extension support
+- Firefox version supporting WebExtensions API
 
 ## Usage
 
@@ -140,10 +106,6 @@ The core functionality can be extended by modifying:
 
 This project is open source. Please check the repository for specific licensing information or contact the author for usage rights.
 
-### Extension Packaging Help
-
-If you help convert this to a proper browser extension, your contributions will be credited and the project will maintain open source principles to ensure maximum accessibility for the community.
-
 ## Author
 
 **Samyak** - Initial development and maintenance
@@ -154,48 +116,36 @@ Current version: **1.0.0**
 
 ## Contributing
 
-Contributions are welcome! We especially need help with:
-
 ### 🎯 Priority: Extension Packaging
 
-**We urgently need assistance converting this userChrome customization into a proper browser extension!** If you have experience with:
+**We need help properly packaging this as a browser extension!** If you have experience with:
 
 - Firefox WebExtensions API
 - Chrome Extension Manifest V3
 - Browser addon development
-- Converting userChrome mods to extensions
 
-**Please reach out - your help would make this project accessible to much more users!**
+**Please reach out - your help would make this project accessible to many more users!**
 
 ### Other Contributions
 
-- Bug fixes and improvements to the existing userChrome implementation
-- Documentation enhancements
-- Feature suggestions and requests
-- Testing across different browser versions
-
-Feel free to submit issues and enhancement requests to improve the Tab-Island customization.
+- Bug fixes and improvements
+- Documentation enhancements  
+- Feature suggestions
+- Testing across browsers
 
 ## Troubleshooting
 
 ### Common Issues
 
-1. **Tab islands not appearing**:
-   - Ensure `toolkit.legacyUserProfileCustomizations.stylesheets` is set to `true`
-   - Verify files are placed in the correct chrome directory
+1. **Extension not loading**:
+   - Check browser console (Ctrl+Shift+J) for errors
+   - Ensure all extension files are present
+   - Verify manifest.json syntax
+
+2. **Tab islands not appearing**:
    - Restart browser after installation
+   - Check for conflicts with other tab extensions
 
-2. **Styling issues**:
-   - Check for conflicts with other userChrome customizations
-   - Verify CSS syntax in both files
-
-3. **Performance issues**:
-   - The customization uses lightweight CSS transitions
-   - JavaScript only runs during initialization
-
-### Getting Help
-
-If you encounter issues not covered here, please:
-1. Check your browser's error console (Ctrl+Shift+J)
-2. Verify all files are correctly placed
-3. Ensure browser compatibility requirements are met
+3. **Styling issues**:
+   - Check browser console for CSS errors
+   - Verify no conflicting extensions
